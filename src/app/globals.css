@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────
+   Tana Bana — Desi Dhagga Design System
+   Tailwind CSS v4 · CSS-first @theme config
+   ────────────────────────────────────────────── */
+
+@theme inline {
+  /* ─── Color Palette (Material Design 3 / Fidelity) ─── */
+  --color-surface: #fff9ee;
+  --color-surface-dim: #dfd9cf;
+  --color-surface-bright: #fff9ee;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f9f3e8;
+  --color-surface-container: #f3ede2;
+  --color-surface-container-high: #ede8dd;
+  --color-surface-container-highest: #e8e2d7;
+  --color-on-surface: #1d1c15;
+  --color-on-surface-variant: #414943;
+  --color-inverse-surface: #333029;
+  --color-inverse-on-surface: #f6f0e5;
+  --color-outline: #717973;
+  --color-outline-variant: #c1c8c1;
+  --color-surface-tint: #3f6651;
+
+  --color-primary: #0c3523;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #254c38;
+  --color-on-primary-container: #91bca2;
+  --color-inverse-primary: #a5d0b6;
+  --color-primary-fixed: #c1edd1;
+  --color-primary-fixed-dim: #a5d0b6;
+  --color-on-primary-fixed: #002112;
+  --color-on-primary-fixed-variant: #274e3a;
+
+  --color-secondary: #aa3433;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fe716c;
+  --color-on-secondary-container: #70040f;
+  --color-secondary-fixed: #ffdad7;
+  --color-secondary-fixed-dim: #ffb3ae;
+  --color-on-secondary-fixed: #410004;
+  --color-on-secondary-fixed-variant: #891b1f;
+
+  --color-tertiary: #3d2c00;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #584100;
+  --color-on-tertiary-container: #d8ac42;
+  --color-tertiary-fixed: #ffdf9c;
+  --color-tertiary-fixed-dim: #eec054;
+  --color-on-tertiary-fixed: #251a00;
+  --color-on-tertiary-fixed-variant: #5b4300;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-background: #fff9ee;
+  --color-on-background: #1d1c15;
+  --color-surface-variant: #e8e2d7;
+
+  /* ─── Typography ─── */
+  --font-display: "Playfair Display", serif;
+  --font-headline: "Playfair Display", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-label: "Plus Jakarta Sans", sans-serif;
+
+  /* ─── Spacing ─── */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3.5rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-margin: 4rem;
+  --spacing-margin-mobile: 1.25rem;
+}
+
+/* ─── Base Reset ─── */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overscroll-behavior: none;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Zari Pattern Utility ─── */
+.zari-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #d8ac42 0,
+    #d8ac42 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 6px 6px;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background-color: var(--color-secondary-fixed);
+  color: var(--color-on-secondary-fixed);
+}
