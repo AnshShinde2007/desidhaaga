@@ -1,14 +1,16 @@
 import { Suspense } from "react";
+import { connection } from "next/server";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ZariDivider from "@/components/ZariDivider";
 import ProductGrid from "@/components/ProductGrid";
 import MetricsStrip from "@/components/MetricsStrip";
 import Footer from "@/components/Footer";
-import { getShopifyProducts } from "@/lib/shopify";
+import { getShopifyProducts, type ShopifyProduct } from "@/lib/shopify";
 
 async function ShopifyProducts() {
-  let products = [];
+  await connection();
+  let products: ShopifyProduct[] = [];
   try {
     products = await getShopifyProducts();
   } catch (error) {

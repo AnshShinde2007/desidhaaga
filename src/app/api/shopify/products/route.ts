@@ -1,6 +1,8 @@
+import { connection } from "next/server";
 import { getShopifyProducts } from "@/lib/shopify";
 
 export async function GET() {
+  await connection();
   try {
     return Response.json({ products: await getShopifyProducts() });
   } catch (error) {
