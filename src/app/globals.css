@@ -1,102 +1,357 @@
 @import "tailwindcss";
+@source "../components";
+@source "./";
 
-/* ──────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────
    Tana Bana — Desi Dhagga Design System
-   Tailwind CSS v4 · CSS-first @theme config
-   ────────────────────────────────────────────── */
+   Exact Design Tokens & Alignment from Stitch Screen db18e669
+   ───────────────────────────────────────────────────────────── */
 
-@theme inline {
-  /* ─── Color Palette (Material Design 3 / Fidelity) ─── */
-  --color-surface: #fff9ee;
-  --color-surface-dim: #dfd9cf;
-  --color-surface-bright: #fff9ee;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f9f3e8;
-  --color-surface-container: #f3ede2;
-  --color-surface-container-high: #ede8dd;
-  --color-surface-container-highest: #e8e2d7;
-  --color-on-surface: #1d1c15;
-  --color-on-surface-variant: #414943;
-  --color-inverse-surface: #333029;
-  --color-inverse-on-surface: #f6f0e5;
-  --color-outline: #717973;
-  --color-outline-variant: #c1c8c1;
-  --color-surface-tint: #3f6651;
+:root {
+  /* Surface colors */
+  --surface: #fff9ee;
+  --surface-dim: #dfd9cf;
+  --surface-bright: #fff9ee;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f9f3e8;
+  --surface-container: #f3ede2;
+  --surface-container-high: #ede8dd;
+  --surface-container-highest: #e8e2d7;
+  --surface-variant: #e8e2d7;
+  --on-surface: #1d1c15;
+  --on-surface-variant: #414943;
+  --inverse-surface: #333029;
+  --inverse-on-surface: #f6f0e5;
+  --outline: #717973;
+  --outline-variant: #c1c8c1;
+  --surface-tint: #3f6651;
 
-  --color-primary: #0c3523;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #254c38;
-  --color-on-primary-container: #91bca2;
-  --color-inverse-primary: #a5d0b6;
-  --color-primary-fixed: #c1edd1;
-  --color-primary-fixed-dim: #a5d0b6;
-  --color-on-primary-fixed: #002112;
-  --color-on-primary-fixed-variant: #274e3a;
+  /* Primary colors (Forest Green) */
+  --primary: #0c3523;
+  --on-primary: #ffffff;
+  --primary-container: #254c38;
+  --on-primary-container: #91bca2;
+  --inverse-primary: #a5d0b6;
+  --primary-fixed: #c1edd1;
+  --primary-fixed-dim: #a5d0b6;
+  --on-primary-fixed: #002112;
+  --on-primary-fixed-variant: #274e3a;
 
-  --color-secondary: #aa3433;
-  --color-on-secondary: #ffffff;
-  --color-secondary-container: #fe716c;
-  --color-on-secondary-container: #70040f;
-  --color-secondary-fixed: #ffdad7;
-  --color-secondary-fixed-dim: #ffb3ae;
-  --color-on-secondary-fixed: #410004;
-  --color-on-secondary-fixed-variant: #891b1f;
+  /* Secondary colors (Madder / Rani Red) */
+  --secondary: #aa3433;
+  --on-secondary: #ffffff;
+  --secondary-container: #fe716c;
+  --on-secondary-container: #70040f;
+  --secondary-fixed: #ffdad7;
+  --secondary-fixed-dim: #ffb3ae;
+  --on-secondary-fixed: #410004;
+  --on-secondary-fixed-variant: #891b1f;
 
-  --color-tertiary: #3d2c00;
-  --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #584100;
-  --color-on-tertiary-container: #d8ac42;
-  --color-tertiary-fixed: #ffdf9c;
-  --color-tertiary-fixed-dim: #eec054;
-  --color-on-tertiary-fixed: #251a00;
-  --color-on-tertiary-fixed-variant: #5b4300;
+  /* Tertiary colors (Gold Zari) */
+  --tertiary: #3d2c00;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #584100;
+  --on-tertiary-container: #d8ac42;
+  --tertiary-fixed: #ffdf9c;
+  --tertiary-fixed-dim: #eec054;
+  --on-tertiary-fixed: #251a00;
+  --on-tertiary-fixed-variant: #5b4300;
 
-  --color-error: #ba1a1a;
-  --color-on-error: #ffffff;
-  --color-error-container: #ffdad6;
-  --color-on-error-container: #93000a;
-
-  --color-background: #fff9ee;
-  --color-on-background: #1d1c15;
-  --color-surface-variant: #e8e2d7;
-
-  /* ─── Typography ─── */
-  --font-display: "Playfair Display", serif;
-  --font-headline: "Playfair Display", serif;
-  --font-body: "Plus Jakarta Sans", sans-serif;
-  --font-label: "Plus Jakarta Sans", sans-serif;
-
-  /* ─── Spacing ─── */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3.5rem;
-  --spacing-gutter: 1.5rem;
-  --spacing-gutter-mobile: 1rem;
-  --spacing-margin: 4rem;
-  --spacing-margin-mobile: 1.25rem;
+  /* Spacing Scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --gutter: 1.5rem;
+  --gutter-mobile: 1rem;
+  --margin: 4rem;
+  --margin-mobile: 1.25rem;
 }
 
 /* ─── Base Reset ─── */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-}
-
-body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
   overscroll-behavior: none;
-  background-color: var(--color-surface);
-  color: var(--color-on-surface);
-  font-family: var(--font-body);
 }
 
-/* ─── Scrollbar ─── */
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* ─── Zari Pattern Utility ─── */
+::selection {
+  background-color: var(--secondary-fixed);
+  color: var(--on-secondary-fixed);
+}
+
+/* ─── Background & Color Utilities ─── */
+.bg-surface { background-color: var(--surface); }
+.bg-surface-dim { background-color: var(--surface-dim); }
+.bg-surface-bright { background-color: var(--surface-bright); }
+.bg-surface-container-lowest { background-color: var(--surface-container-lowest); }
+.bg-surface-container-low { background-color: var(--surface-container-low); }
+.bg-surface-container { background-color: var(--surface-container); }
+.bg-surface-container-high { background-color: var(--surface-container-high); }
+.bg-surface-container-highest { background-color: var(--surface-container-highest); }
+.bg-surface-variant { background-color: var(--surface-variant); }
+
+.bg-primary { background-color: var(--primary); }
+.bg-primary-container { background-color: var(--primary-container); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-secondary-container { background-color: var(--secondary-container); }
+.bg-tertiary { background-color: var(--tertiary); }
+.bg-tertiary-container { background-color: var(--tertiary-container); }
+.bg-on-tertiary-container { background-color: var(--on-tertiary-container); }
+.bg-inverse-on-surface { background-color: var(--inverse-on-surface); }
+
+.text-surface { color: var(--surface); }
+.text-surface-dim { color: var(--surface-dim); }
+.text-surface-container { color: var(--surface-container); }
+.text-on-surface { color: var(--on-surface); }
+.text-on-surface-variant { color: var(--on-surface-variant); }
+.text-primary { color: var(--primary); }
+.text-on-primary { color: var(--on-primary); }
+.text-secondary { color: var(--secondary); }
+.text-on-secondary { color: var(--on-secondary); }
+.text-on-tertiary-container { color: var(--on-tertiary-container); }
+.text-tertiary-fixed { color: var(--tertiary-fixed); }
+.text-tertiary-fixed-dim { color: var(--tertiary-fixed-dim); }
+.text-inverse-on-surface { color: var(--inverse-on-surface); }
+
+/* ─── Typography Utilities ─── */
+.font-display,
+.font-headline,
+.font-headline-lg,
+.font-headline-md,
+.font-headline-sm,
+.font-headline-lg-mobile,
+.font-display-mobile {
+  font-family: var(--font-display, "Playfair Display", serif);
+}
+
+.font-body,
+.font-body-lg,
+.font-body-md,
+.font-body-sm,
+.font-label,
+.font-label-lg,
+.font-label-md,
+.font-label-sm {
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+}
+
+.text-display {
+  font-size: 3.5rem;
+  line-height: 4.25rem;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .text-display {
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+    letter-spacing: -0.01em;
+  }
+}
+
+.text-headline-lg {
+  font-size: 2.5rem;
+  line-height: 3.25rem;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .text-headline-lg {
+    font-size: 1.75rem;
+    line-height: 2.375rem;
+  }
+}
+
+.text-headline-md {
+  font-size: 1.75rem;
+  line-height: 2.375rem;
+  font-weight: 500;
+}
+
+.text-headline-sm {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+  letter-spacing: 0.01em;
+  font-weight: 300;
+}
+
+.text-body-md {
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+  letter-spacing: 0.005em;
+  font-weight: 400;
+}
+
+.text-body-sm {
+  font-size: 0.8125rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+}
+
+.text-label-lg {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+}
+
+.text-label-md {
+  font-size: 0.6875rem;
+  line-height: 0.875rem;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+.text-label-sm {
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* ─── Stitch Layout & Spacing Utilities ─── */
+.px-margin-mobile {
+  padding-left: var(--margin-mobile);
+  padding-right: var(--margin-mobile);
+}
+@media (min-width: 1024px) {
+  .lg\:px-margin {
+    padding-left: var(--margin) !important;
+    padding-right: var(--margin) !important;
+  }
+}
+
+.gap-space-xs { gap: var(--space-xs); }
+.gap-space-sm { gap: var(--space-sm); }
+.gap-space-md { gap: var(--space-md); }
+.gap-space-lg { gap: var(--space-lg); }
+.gap-gutter { gap: var(--gutter); }
+
+.mb-space-xs { margin-bottom: var(--space-xs); }
+.mb-space-sm { margin-bottom: var(--space-sm); }
+.mb-space-md { margin-bottom: var(--space-md); }
+.mb-space-lg { margin-bottom: var(--space-lg); }
+.mb-space-xl { margin-bottom: var(--space-xl); }
+
+.py-space-sm { padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
+.py-space-md { padding-top: var(--space-md); padding-bottom: var(--space-md); }
+.py-space-lg { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+.py-space-xl { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+
+.pt-space-xs { padding-top: var(--space-xs); }
+.pt-space-sm { padding-top: var(--space-sm); }
+.pt-space-md { padding-top: var(--space-md); }
+.pt-space-lg { padding-top: var(--space-lg); }
+.pt-space-xl { padding-top: var(--space-xl); }
+
+.pb-space-xs { padding-bottom: var(--space-xs); }
+.pb-space-sm { padding-bottom: var(--space-sm); }
+.pb-space-md { padding-bottom: var(--space-md); }
+.pb-space-lg { padding-bottom: var(--space-lg); }
+.pb-space-xl { padding-bottom: var(--space-xl); }
+
+.ml-space-xs { margin-left: var(--space-xs); }
+.ml-space-sm { margin-left: var(--space-sm); }
+.ml-space-md { margin-left: var(--space-md); }
+
+.pr-space-lg { padding-right: var(--space-lg); }
+@media (min-width: 768px) {
+  .md\:pr-space-lg { padding-right: var(--space-lg) !important; }
+}
+
+.space-y-space-xs > :not([hidden]) ~ :not([hidden]) {
+  margin-top: var(--space-xs);
+}
+.space-y-space-sm > :not([hidden]) ~ :not([hidden]) {
+  margin-top: var(--space-sm);
+}
+.space-y-space-md > :not([hidden]) ~ :not([hidden]) {
+  margin-top: var(--space-md);
+}
+
+/* ─── Grid & Column Layout Helpers ─── */
+@media (min-width: 768px) {
+  .md\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  }
+  .md\:col-span-5 {
+    grid-column: span 5 / span 5 !important;
+  }
+  .md\:col-span-3 {
+    grid-column: span 3 / span 3 !important;
+  }
+  .md\:col-span-4 {
+    grid-column: span 4 / span 4 !important;
+  }
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+  .md\:divide-y-0 > :not([hidden]) ~ :not([hidden]) {
+    border-top-width: 0px !important;
+  }
+  .md\:block {
+    display: block !important;
+  }
+  .md\:flex {
+    display: flex !important;
+  }
+  .md\:flex-row {
+    flex-direction: row !important;
+  }
+  .md\:items-end {
+    align-items: flex-end !important;
+  }
+  .md\:pt-0 {
+    padding-top: 0px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .lg\:flex {
+    display: flex !important;
+  }
+  .lg\:px-8 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+/* ─── Max-width containers ─── */
+.max-w-xl {
+  max-width: 36rem !important;
+}
+.max-w-7xl {
+  max-width: 80rem !important;
+}
+
+/* ─── Aspect Ratios ─── */
+.aspect-\[3\/4\] {
+  aspect-ratio: 3 / 4 !important;
+}
+
+/* ─── Zari Gold Pattern ─── */
 .zari-pattern {
   background-image: repeating-linear-gradient(
     45deg,
@@ -106,10 +361,4 @@ body {
     transparent 50%
   );
   background-size: 6px 6px;
-}
-
-/* ─── Selection ─── */
-::selection {
-  background-color: var(--color-secondary-fixed);
-  color: var(--color-on-secondary-fixed);
 }
