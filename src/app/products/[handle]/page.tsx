@@ -7,6 +7,8 @@ import Price from "@/components/Price";
 import { getShopifyProduct } from "@/lib/shopify";
 import ProductShare from "@/components/ProductShare";
 
+export const instant = false;
+
 export default async function ProductPage({ params }: PageProps<"/products/[handle]">) {
   const { handle } = await params;
   let product;
