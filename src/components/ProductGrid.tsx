@@ -1,6 +1,8 @@
 import BuyButton from "@/components/BuyButton";
 import ProductGallery from "@/components/ProductGallery";
 import type { ShopifyProduct } from "@/lib/shopify";
+import Price from "@/components/Price";
+import Link from "next/link";
 
 type ProductGridProps = { products: ShopifyProduct[] };
 
@@ -56,28 +58,25 @@ export default function ProductGrid({ products }: ProductGridProps) {
           {products.map((product) => (
             <article key={product.id} className="group flex flex-col">
               {/* Image */}
-              <div className="relative mb-4">
+              <Link href={`/products/${product.handle}`} className="relative mb-4 block" aria-label={`View ${product.title}`}>
                 <ProductGallery
                   title={product.title}
                   images={product.images.nodes.length ? product.images.nodes : product.featuredImage ? [product.featuredImage] : []}
                 />
                 {/* Quick checkout */}
-                <div className="absolute bottom-20 right-3.5 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-300">
-                  <BuyButton iconOnly variantId={product.variants.nodes.find((variant) => variant.availableForSale)?.id} />
-                </div>
-              </div>
+              </Link>
 
               {/* Details */}
               <div className="flex flex-col flex-1">
-                <h3 className="font-headline-sm text-[18px] text-on-surface font-medium leading-snug mt-1 group-hover:text-primary transition-colors">
+                <Link href={`/products/${product.handle}`} className="font-headline-sm text-[18px] text-on-surface font-medium leading-snug mt-1 group-hover:text-primary transition-colors">
                     {product.title}
-                </h3>
+                </Link>
                 <p className="font-body-sm text-body-sm text-on-surface-variant font-light line-clamp-2 mt-1">
                     {product.description}
                 </p>
                 <div className="flex items-center justify-between mt-3 pt-3 border-t border-[#254c38]/10">
                   <span className="font-body-md text-body-md text-primary font-semibold">
-                    {new Intl.NumberFormat(undefined, { style: "currency", currency: product.priceRange.minVariantPrice.currencyCode }).format(Number(product.priceRange.minVariantPrice.amount))}
+                    <Price amount={product.priceRange.minVariantPrice.amount} currency={product.priceRange.minVariantPrice.currencyCode} />
                   </span>
                   <BuyButton variantId={product.variants.nodes.find((variant) => variant.availableForSale)?.id} />
                 </div>

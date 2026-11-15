@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/components/CartProvider";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-display",
@@ -80,7 +81,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-surface text-on-surface font-[family-name:var(--font-body)]">
-        {children}
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

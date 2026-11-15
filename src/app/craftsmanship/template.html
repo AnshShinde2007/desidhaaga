@@ -1,0 +1,747 @@
+﻿<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-low": "#f9f3e8",
+            "secondary-container": "#fe716c",
+            "tertiary": "#3d2c00",
+            "inverse-primary": "#a5d0b6",
+            "on-tertiary-container": "#d8ac42",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#eec054",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#ffb3ae",
+            "surface-variant": "#e8e2d7",
+            "primary-fixed-dim": "#a5d0b6",
+            "inverse-on-surface": "#f6f0e5",
+            "surface": "#fff9ee",
+            "on-error": "#ffffff",
+            "surface-dim": "#dfd9cf",
+            "secondary-fixed": "#ffdad7",
+            "primary": "#0c3523",
+            "surface-tint": "#3f6651",
+            "error-container": "#ffdad6",
+            "background": "#fff9ee",
+            "primary-container": "#254c38",
+            "on-primary-container": "#91bca2",
+            "tertiary-container": "#584100",
+            "surface-container": "#f3ede2",
+            "on-secondary-fixed-variant": "#891b1f",
+            "primary-fixed": "#c1edd1",
+            "on-primary-fixed-variant": "#274e3a",
+            "on-surface": "#1d1c15",
+            "on-secondary": "#ffffff",
+            "outline": "#717973",
+            "inverse-surface": "#333029",
+            "on-secondary-fixed": "#410004",
+            "on-primary-fixed": "#002112",
+            "on-tertiary-fixed": "#251a00",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-bright": "#fff9ee",
+            "on-background": "#1d1c15",
+            "tertiary-fixed": "#ffdf9c",
+            "on-surface-variant": "#414943",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#70040f",
+            "on-tertiary": "#ffffff",
+            "secondary": "#aa3433",
+            "outline-variant": "#c1c8c1",
+            "surface-container-high": "#ede8dd",
+            "surface-container-highest": "#e8e2d7"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            gutter: "1.5rem",
+            margin: "4rem",
+            "space-xl": "3.5rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "2rem"
+          },
+          fontFamily: {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Playfair Display"],
+            "headline-lg": ["Playfair Display"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Playfair Display"],
+            "display-mobile": ["Playfair Display"],
+            "body-md": ["Plus Jakarta Sans"],
+            display: ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label-sm": ["0.625rem", { lineHeight: "0.75rem", letterSpacing: "0.1em", fontWeight: "500" }],
+            "headline-sm": ["1.25rem", { lineHeight: "1.75rem", fontWeight: "600" }],
+            "headline-lg": ["2.5rem", { lineHeight: "3.25rem", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "label-lg": ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.14em", fontWeight: "600" }],
+            "headline-lg-mobile": ["1.75rem", { lineHeight: "2.375rem", fontWeight: "400" }],
+            "body-lg": ["1.125rem", { lineHeight: "1.875rem", letterSpacing: "0.01em", fontWeight: "300" }],
+            "body-sm": ["0.8125rem", { lineHeight: "1.375rem", fontWeight: "400" }],
+            "headline-md": ["1.75rem", { lineHeight: "2.375rem", fontWeight: "500" }],
+            "display-mobile": ["2.25rem", { lineHeight: "2.875rem", letterSpacing: "-0.01em", fontWeight: "400" }],
+            "body-md": ["0.9375rem", { lineHeight: "1.625rem", letterSpacing: "0.005em", fontWeight: "400" }],
+            display: ["3.5rem", { lineHeight: "4.25rem", letterSpacing: "-0.02em", fontWeight: "400" }],
+            "label-md": ["0.6875rem", { lineHeight: "0.875rem", letterSpacing: "0.12em", fontWeight: "500" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Immersive Textile Hero & Transparent Navbar Wrapper -->
+<div class="relative w-full overflow-hidden bg-[#254c38]">
+<!-- Background Image: Authentic Mulmul Cotton Saree with Top Red Selvedge Band -->
+<img alt="Authentic handcrafted Mulmul cotton saree with crimson red selvedge and yellow-gold piping" class="absolute inset-0 w-full h-full object-cover object-top select-none pointer-events-none" src="/images/stitch/img-2ac93d536e81.png"/>
+<!-- Subtle gradient overlay to enhance legibility of title without losing fabric grain -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/25 to-[#254c38]/90 pointer-events-none"></div>
+<!-- Header / Navbar placed directly over the red selvedge band -->
+<header class="relative z-30 w-full bg-transparent transition-all duration-300">
+<div class="h-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center justify-between">
+<!-- Brand Emblem & Title -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-3 group" data-path="shop-sarees" href="#">
+<img alt="Desi Dhaaga Handloom Seal" class="h-12 w-12 md:h-14 md:w-14 rounded-full object-contain bg-white/95 p-1 shadow-md transition-transform duration-300 group-hover:scale-105 border border-[#d8ac42]/60" src="/images/stitch/img-c1751dc03526.png"/>
+<span class="font-headline-sm text-headline-sm tracking-wide text-[#fff9ee] font-medium hidden sm:inline-block drop-shadow-sm">
+              Desi Dhaaga
+            </span>
+</a>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-space-lg whitespace-nowrap" data-active-classes="text-[#ffdf9c] border-b-2 border-[#d8ac42]">
+<a class="font-label-lg text-label-lg tracking-widest uppercase text-[#fff9ee]/90 hover:text-[#ffdf9c] transition-colors duration-200 py-1 drop-shadow-sm whitespace-nowrap" data-path="shop-sarees" href="#">Shop Sarees</a>
+<a class="font-label-lg text-label-lg tracking-widest uppercase text-[#fff9ee]/90 hover:text-[#ffdf9c] transition-colors duration-200 py-1 drop-shadow-sm whitespace-nowrap" data-path="our-story" href="#">Our Story</a>
+<a aria-current="page" class="font-label-lg text-label-lg tracking-widest uppercase transition-colors duration-200 py-1 whitespace-nowrap text-[#ffdf9c] border-b-2 border-[#d8ac42] drop-shadow-sm" data-path="craftsmanship" href="#">Craftsmanship</a>
+<a class="font-label-lg text-label-lg tracking-widest uppercase text-[#fff9ee]/90 hover:text-[#ffdf9c] transition-colors duration-200 py-1 drop-shadow-sm whitespace-nowrap" data-path="journal" href="#">Journal</a>
+</nav>
+<!-- Utility & Actions -->
+<div class="flex items-center gap-space-sm sm:gap-space-md whitespace-nowrap">
+<div class="hidden sm:flex items-center gap-space-xs text-[#fff9ee] font-label-sm text-label-sm tracking-widest uppercase border border-[#d8ac42]/40 bg-black/25 backdrop-blur-sm px-space-sm py-1 rounded-none shadow-sm">
+<button class="text-[#ffdf9c] font-semibold hover:text-[#ffdf9c] transition-colors" type="button">INR (â‚¹)</button>
+<span class="text-[#eec054]/50">/</span>
+<button class="text-[#fff9ee]/80 hover:text-[#fff9ee] transition-colors" type="button">USD ($)</button>
+</div>
+<div class="flex items-center gap-space-xs text-[#fff9ee]">
+<button aria-label="Search" class="w-9 h-9 rounded-full flex items-center justify-center hover:text-[#ffdf9c] hover:bg-white/10 transition-colors drop-shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button aria-label="Wishlist" class="w-9 h-9 rounded-full flex items-center justify-center hover:text-[#ffdf9c] hover:bg-white/10 transition-colors drop-shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<a aria-label="Cart" class="w-9 h-9 rounded-full flex items-center justify-center hover:text-[#ffdf9c] hover:bg-white/10 transition-colors relative drop-shadow-sm" data-path="cart-bag" href="#">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="absolute top-1 right-1 bg-[#d8ac42] text-[#251a00] font-label-sm text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold ring-1 ring-primary">0</span>
+</a>
+<div class="w-8 h-8 rounded-full bg-white/15 border border-[#d8ac42]/50 flex items-center justify-center ml-space-xs text-[#fff9ee] cursor-pointer hover:border-[#ffdf9c] transition-colors">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Top Monograph Ribbon over Green Field -->
+<div class="relative z-20 w-full border-t border-[#d8ac42]/30 bg-black/25 backdrop-blur-sm py-2 px-margin-mobile lg:px-margin flex items-center justify-between text-[#fff9ee]">
+<div class="flex items-center gap-space-sm">
+<span class="w-1.5 h-1.5 rotate-45 bg-[#d8ac42] inline-block"></span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-[#ffdf9c]">Guild Archive â€¢ Monograph No. 04</span>
+</div>
+<div class="hidden md:flex items-center gap-space-lg text-[#ffdf9c]/90 font-label-sm text-label-sm tracking-widest uppercase">
+<span>100s Gossamer Count</span>
+<span class="text-[#d8ac42]">â€¢</span>
+<span>Phulia &amp; Santipur Clusters</span>
+<span class="text-[#d8ac42]">â€¢</span>
+<span>Natural Botanical Extracts</span>
+</div>
+<div class="flex items-center gap-space-xs text-[#d8ac42]">
+<span class="material-symbols-outlined text-[14px]">history_edu</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-[#ffdf9c]">Authenticated Pit Loom</span>
+</div>
+</div>
+<!-- Hero Content: Editorial Typography over authentic Mulmul -->
+<section class="relative z-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin pt-12 pb-16 md:pt-16 md:pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
+<div class="lg:col-span-8 space-y-space-md text-[#fff9ee]">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-lg text-label-lg uppercase tracking-widest text-[#fe716c] font-semibold bg-black/30 px-2 py-0.5 border border-[#fe716c]/40">Technical Monograph</span>
+<span class="h-px w-10 bg-[#d8ac42]"></span>
+<span class="font-label-sm text-label-sm text-[#ffdf9c] uppercase tracking-widest">Warp &amp; Weft Mechanics</span>
+</div>
+<h1 class="font-headline-lg text-display-mobile md:text-display text-[#fff9ee] tracking-tight font-normal leading-[1.15] max-w-3xl drop-shadow-md">
+            The Alchemy of <span class="italic font-light text-[#ffdf9c]">TÄna BÄna</span>: Anatomy of a Handwoven Mulmul
+          </h1>
+<p class="font-body-lg text-body-lg text-[#fff9ee]/90 font-light max-w-2xl leading-relaxed drop-shadow-sm">
+            How raw organic 100s combed cotton turns into a featherweight 240-gram cloud of sheer grace between tensioned warp threads and the rhythmic breath of the Bengal pit loom.
+          </p>
+</div>
+<div class="lg:col-span-4 flex flex-col justify-end space-y-space-sm">
+<div class="bg-[#1d1c15]/75 backdrop-blur-md p-space-md border border-[#d8ac42]/40 shadow-xl space-y-space-xs text-[#fff9ee]">
+<div class="flex justify-between items-baseline">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-[#ffdf9c]">Standard Net Mass</span>
+<span class="font-headline-sm text-headline-sm text-[#fff9ee] font-serif">238 â€” 245 g</span>
+</div>
+<div class="w-full bg-white/20 h-1 overflow-hidden">
+<div class="bg-[#d8ac42] h-full w-[88%]"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-[#fff9ee]/80 pt-space-xs">
+<span>Warp: 100s combed single</span>
+<span>Weft: Untwisted filament</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mt-12 pt-6 border-t border-[#d8ac42]/30 text-[#fff9ee]">
+<div class="space-y-1 bg-black/20 p-3 backdrop-blur-sm border border-white/10">
+<span class="font-label-sm text-label-sm text-[#fe716c] uppercase tracking-widest block font-medium">Loom Cadence</span>
+<span class="font-headline-sm text-headline-sm text-[#fff9ee] block font-serif">3,400</span>
+<span class="text-xs text-[#fff9ee]/80">Picks hand-thrown per saree</span>
+</div>
+<div class="space-y-1 bg-black/20 p-3 backdrop-blur-sm border border-white/10">
+<span class="font-label-sm text-label-sm text-[#fe716c] uppercase tracking-widest block font-medium">Loom Span</span>
+<span class="font-headline-sm text-headline-sm text-[#fff9ee] block font-serif">14â€“22 Days</span>
+<span class="text-xs text-[#fff9ee]/80">Continuous artisan engagement</span>
+</div>
+<div class="space-y-1 bg-black/20 p-3 backdrop-blur-sm border border-white/10">
+<span class="font-label-sm text-label-sm text-[#fe716c] uppercase tracking-widest block font-medium">Count Density</span>
+<span class="font-headline-sm text-headline-sm text-[#fff9ee] block font-serif">100 x 100</span>
+<span class="text-xs text-[#fff9ee]/80">Ultra-fine sheer gossamer yarn</span>
+</div>
+<div class="space-y-1 bg-black/20 p-3 backdrop-blur-sm border border-white/10">
+<span class="font-label-sm text-label-sm text-[#fe716c] uppercase tracking-widest block font-medium">Chemical Footprint</span>
+<span class="font-headline-sm text-headline-sm text-[#fff9ee] block font-serif">0.0%</span>
+<span class="text-xs text-[#fff9ee]/80">Zero synthetic sizing agents</span>
+</div>
+</div>
+</section>
+</div>
+<main class="w-full bg-surface min-h-[calc(100vh-80px)]">
+<!-- Interactive Anatomy of the Saree Section -->
+<section class="w-full bg-surface py-space-xl px-margin-mobile lg:px-margin border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto space-y-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">Textile Architecture</span>
+<h2 class="font-headline-lg text-headline-lg text-primary font-normal">Anatomy of the 5.5-Metre Drape</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+              Each quadrant of the handloom saree obeys ancestral architectural lawsâ€”from the structural rib of the selvedge to the ceremonial weight of the gold-tipped pallu.
+            </p>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest bg-surface-container px-3 py-1.5 border border-outline-variant/40">
+<span class="material-symbols-outlined text-secondary text-[18px]">touch_app</span>
+<span>Select component zone to inspect technical weave</span>
+</div>
+</div>
+<!-- Architectural Anatomy Display -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Visual Presentation Canvas -->
+<div class="lg:col-span-8 bg-surface-container-low p-space-md shadow-sm relative group overflow-hidden border border-outline-variant/20">
+<div class="relative w-full aspect-[16/10] bg-primary overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Editorial close-up of a deep forest green gossamer Indian cotton mulmul saree spread across an unvarnished teakwood artisan worktable with crimson border and gold selvedge piping." src="/images/stitch/img-1253430321d9.png"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<!-- Hotspot Pins -->
+<button aria-label="Inspect Selvedge" class="absolute top-[28%] left-[24%] -translate-x-1/2 -translate-y-1/2 group/pin cursor-pointer focus:outline-none" onclick="inspectZone('selvedge')">
+<span class="relative flex h-8 w-8 items-center justify-center">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-on-tertiary-container opacity-60"></span>
+<span class="relative inline-flex rounded-full h-5 w-5 bg-on-tertiary-container text-tertiary font-label-sm text-[10px] font-bold items-center justify-center shadow-md">01</span>
+</span>
+<span class="absolute left-9 top-1/2 -translate-y-1/2 bg-surface text-on-surface font-label-sm text-label-sm tracking-wider uppercase px-2 py-1 shadow-md whitespace-nowrap hidden sm:inline-block border border-outline-variant/40">The KinÄr (Selvedge)</span>
+</button>
+<button aria-label="Inspect Zameen" class="absolute top-[58%] left-[48%] -translate-x-1/2 -translate-y-1/2 group/pin cursor-pointer focus:outline-none" onclick="inspectZone('zameen')">
+<span class="relative flex h-8 w-8 items-center justify-center">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-surface-bright opacity-60"></span>
+<span class="relative inline-flex rounded-full h-5 w-5 bg-surface-bright text-primary font-label-sm text-[10px] font-bold items-center justify-center shadow-md">02</span>
+</span>
+<span class="absolute left-9 top-1/2 -translate-y-1/2 bg-surface text-on-surface font-label-sm text-label-sm tracking-wider uppercase px-2 py-1 shadow-md whitespace-nowrap hidden sm:inline-block border border-outline-variant/40">Gossamer ZamÄ«n (Field)</span>
+</button>
+<button aria-label="Inspect Pallu" class="absolute top-[35%] right-[18%] -translate-x-1/2 -translate-y-1/2 group/pin cursor-pointer focus:outline-none" onclick="inspectZone('pallu')">
+<span class="relative flex h-8 w-8 items-center justify-center">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-60"></span>
+<span class="relative inline-flex rounded-full h-5 w-5 bg-secondary text-on-secondary font-label-sm text-[10px] font-bold items-center justify-center shadow-md">03</span>
+</span>
+<span class="absolute right-9 top-1/2 -translate-y-1/2 bg-surface text-on-surface font-label-sm text-label-sm tracking-wider uppercase px-2 py-1 shadow-md whitespace-nowrap hidden sm:inline-block border border-outline-variant/40">Aanchal / Pallu</span>
+</button>
+</div>
+<div class="mt-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+<span>Specimen: Madder &amp; Forest Green Kora Mulmul</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Scale 1:1 Loom Spec</span>
+</div>
+</div>
+<!-- Dynamic Spec Detail Drawer -->
+<div class="lg:col-span-4 bg-surface-container p-space-lg space-y-space-md border border-outline-variant/30" id="anatomy-card">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg uppercase tracking-widest text-secondary font-semibold" id="zone-number">Zone 02 / 04</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 bg-surface text-primary uppercase tracking-widest border border-outline-variant/30" id="zone-tag">Center Field</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-normal" id="zone-title">Gossamer ZamÄ«n (The Field)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="zone-desc">
+              The core expansive body of the saree, handspun with 100s combed single cotton yarn. Woven in an open, square plain weave that breathes spontaneously in high humidity, creating the legendary translucent drape that melts upon the wearer.
+            </p>
+<div class="space-y-space-xs pt-space-sm bg-surface p-space-md border border-outline-variant/20">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<span>Warp Tension</span>
+<span class="text-primary font-semibold" id="zone-spec-1">18.4 N/cmÂ²</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<span>Reed Denting</span>
+<span class="text-primary font-semibold" id="zone-spec-2">2 ends per dent</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<span>Artisan Technique</span>
+<span class="text-primary font-semibold" id="zone-spec-3">Straight Fly-Shuttle</span>
+</div>
+</div>
+<div class="flex gap-space-xs pt-space-xs">
+<button class="flex-1 py-2 font-label-sm text-label-sm uppercase tracking-wider bg-surface border border-outline-variant/40 hover:bg-primary hover:text-on-primary transition-colors text-center" onclick="inspectZone('selvedge')">Selvedge</button>
+<button class="flex-1 py-2 font-label-sm text-label-sm uppercase tracking-wider bg-primary text-on-primary border border-primary transition-colors text-center" onclick="inspectZone('zameen')">ZamÄ«n</button>
+<button class="flex-1 py-2 font-label-sm text-label-sm uppercase tracking-wider bg-surface border border-outline-variant/40 hover:bg-primary hover:text-on-primary transition-colors text-center" onclick="inspectZone('pallu')">Pallu</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The 6-Stage Artisanal Lifecycle -->
+<section class="w-full bg-surface-container-low py-space-xl px-margin-mobile lg:px-margin border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto space-y-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold block mb-space-xs">Chronology of Creation</span>
+<h2 class="font-headline-lg text-headline-lg text-primary font-normal">The Six Stages of Metamorphosis</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+            A purely non-mechanical, sun-lit lifecycle executed entirely within an eight-mile radius across the rural Nadia artisan corridor.
+          </p>
+</div>
+<!-- Lifecycle Staggered Timeline Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Stage 01 -->
+<article class="bg-surface p-space-lg flex flex-col justify-between space-y-space-md shadow-sm border border-outline-variant/30 group hover:shadow-md hover:border-secondary/40 transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-display text-headline-lg text-on-tertiary-container font-light">01</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-semibold">Fibre &amp; Yarn</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Sourcing &amp; Charkha Spinning</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Organic extra-long staple Indian cotton fibers are manually carded and combed to strip out impurities. Master women spinners draw gossamer 100s count singles on amber-polished wooden Amber Charkhas during humid dawn hours to prevent yarn breakage.
+              </p>
+</div>
+<div class="pt-space-md bg-surface-container-low p-space-sm space-y-space-xs border border-outline-variant/20">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Fiber Staple</span>
+<span class="font-semibold text-primary">34.5 mm</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Spinning Tool</span>
+<span class="font-semibold text-primary">Hand-Tuned Charkha</span>
+</div>
+</div>
+</article>
+<!-- Stage 02 -->
+<article class="bg-surface p-space-lg flex flex-col justify-between space-y-space-md shadow-sm border border-outline-variant/30 group hover:shadow-md hover:border-secondary/40 transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-display text-headline-lg text-on-tertiary-container font-light">02</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-semibold">Botanical Alchemy</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Natural Vat Dyeing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Cotton hanks undergo alkaline scouring in wood-ash water before immersion in living fermentation vats. Madder root (Manjistha) yields terracotta crimsons, harda (Myrobalan) sets deep warm ochres, and wild Indigo extracts brew meditative forest greens.
+              </p>
+</div>
+<div class="pt-space-md bg-surface-container-low p-space-sm space-y-space-xs border border-outline-variant/20">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Vat Medium</span>
+<span class="font-semibold text-primary">Rainwater &amp; Jaggery</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Fixative</span>
+<span class="font-semibold text-primary">Alum &amp; Harda Seed</span>
+</div>
+</div>
+</article>
+<!-- Stage 03 -->
+<article class="bg-surface p-space-lg flex flex-col justify-between space-y-space-md shadow-sm border border-outline-variant/30 group hover:shadow-md hover:border-secondary/40 transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-display text-headline-lg text-on-tertiary-container font-light">03</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-semibold">Architectural Prepping</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">TÄna (Warp) &amp; BÄna Setup</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Warping occurs outdoors across long bamboo trestles under shade. Thousands of thread ends are counted, rice-gruel starched for structural resilience, and individually drafted through the fine reed teeth in a delicate, two-day manual alignment ritual.
+              </p>
+</div>
+<div class="pt-space-md bg-surface-container-low p-space-sm space-y-space-xs border border-outline-variant/20">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Warp Length</span>
+<span class="font-semibold text-primary">60 Metres (10 Drapes)</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Sizing Base</span>
+<span class="font-semibold text-primary">Fermented Conjee Water</span>
+</div>
+</div>
+</article>
+<!-- Stage 04 -->
+<article class="bg-surface p-space-lg flex flex-col justify-between space-y-space-md shadow-sm border border-outline-variant/30 group hover:shadow-md hover:border-secondary/40 transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-display text-headline-lg text-on-tertiary-container font-light">04</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-semibold">The Pit Loom</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">The Treadle Symphony</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Suspended over an excavated earthen floor pit to regulate natural ground humidity, the weaver works twin foot treadles. The polished teakwood shuttle (MÄku) darts horizontally across the shed, driven by subtle wrist flicks at 40 picks per minute.
+              </p>
+</div>
+<div class="pt-space-md bg-surface-container-low p-space-sm space-y-space-xs border border-outline-variant/20">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Loom Structure</span>
+<span class="font-semibold text-primary">Sunken Pit Frame</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Daily Output</span>
+<span class="font-semibold text-primary">0.6 â€” 0.9 Metres</span>
+</div>
+</div>
+</article>
+<!-- Stage 05 -->
+<article class="bg-surface p-space-lg flex flex-col justify-between space-y-space-md shadow-sm border border-outline-variant/30 group hover:shadow-md hover:border-secondary/40 transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-display text-headline-lg text-on-tertiary-container font-light">05</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-semibold">Surface Artistry</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Jamdani Discontinuous Weft</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Without any mechanical assistance, the master weaver inserts heavier bleached or gold zari threads thread-by-thread into the open weave using fine pointed bamboo needles (Kandu), creating motifs that float weightlessly like ink washed upon water.
+              </p>
+</div>
+<div class="pt-space-md bg-surface-container-low p-space-sm space-y-space-xs border border-outline-variant/20">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Needle Gauge</span>
+<span class="font-semibold text-primary">Carved Horn / Bamboo</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Motif Geometry</span>
+<span class="font-semibold text-primary">Butidar Floral Scatter</span>
+</div>
+</div>
+</article>
+<!-- Stage 06 -->
+<article class="bg-surface p-space-lg flex flex-col justify-between space-y-space-md shadow-sm border border-outline-variant/30 group hover:shadow-md hover:border-secondary/40 transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-baseline justify-between">
+<span class="font-display text-headline-lg text-on-tertiary-container font-light">06</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-semibold">Natural Release</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">River Rinsing &amp; Sun Softening</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                The finished mulmul is liberated from the loom rollers and rinsed in free-flowing Gangetic river waters to release the protective starch. Dried flat under the morning canopy of date palms, the cloth emerges with its celebrated cloud-like drape.
+              </p>
+</div>
+<div class="pt-space-md bg-surface-container-low p-space-sm space-y-space-xs border border-outline-variant/20">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Finishing Process</span>
+<span class="font-semibold text-primary">Flowing River Wash</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Drying Method</span>
+<span class="font-semibold text-primary">Open-Air Canopy Shade</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Weaver Tools & Loom Heritage Showcase -->
+<section class="w-full bg-surface py-space-xl px-margin-mobile lg:px-margin border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto space-y-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 space-y-space-md">
+<div class="space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">Instrumentarium</span>
+<h2 class="font-headline-lg text-headline-lg text-primary font-normal">Tools of the Master Guild</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              The handloom weaver relies on no electric current or pneumatic tensioner. Every instrument is carved from local saal, seasoned bamboo, or virgin brassâ€”honed across generations to fit the exact contours of the weaver's palms.
+            </p>
+<div class="bg-surface-container p-space-md space-y-space-sm border border-outline-variant/30">
+<div class="flex items-center gap-space-xs text-primary font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-secondary">handyman</span>
+<span>The Bengal Pit Loom (Khaddi)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Unlike raised European frame looms, the Indian pit loom sits low. The weaver's legs rest inside a carved earthen pit that stays cool, allowing natural humidity to preserve the fragility of high-count pure cotton singles.
+              </p>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<!-- Tool 1 -->
+<div class="bg-surface-container-low p-space-md space-y-space-sm shadow-sm border border-outline-variant/20">
+<div class="w-full aspect-[4/3] bg-surface overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Macro still life of a handcrafted Indian weaver shuttle called a Maku made from aged dark teakwood with brass tipped ends." src="/images/stitch/img-88449e800cb5.png"/>
+<span class="absolute bottom-2 left-2 bg-primary text-on-primary font-label-sm text-label-sm uppercase px-2 py-0.5">Wood &amp; Brass</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary">MÄku (Flying Shuttle)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Carved from seasoned mahogany with brass caps, engineered for frictionless flight across fragile 100s warp threads without snagging.
+                </p>
+</div>
+<!-- Tool 2 -->
+<div class="bg-surface-container-low p-space-md space-y-space-sm shadow-sm border border-outline-variant/20">
+<div class="w-full aspect-[4/3] bg-surface overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Close up architectural detail of a traditional Bengal Sana reed comb made with bamboo slivers." src="/images/stitch/img-0e37e4666a76.png"/>
+<span class="absolute bottom-2 left-2 bg-primary text-on-primary font-label-sm text-label-sm uppercase px-2 py-0.5">Bamboo Splines</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary">SÄna (Bamboo Reed)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Crafted from hand-split river bamboo teeth, governing the precise count and breathability of the drape per square centimetre.
+                </p>
+</div>
+<!-- Tool 3 -->
+<div class="bg-surface-container-low p-space-md space-y-space-sm shadow-sm border border-outline-variant/20">
+<div class="w-full aspect-[4/3] bg-surface overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Traditional wooden spindles called Natai holding fine dyed cotton yarn inside an artisan workshop." src="/images/stitch/img-996eb280e43b.png"/>
+<span class="absolute bottom-2 left-2 bg-primary text-on-primary font-label-sm text-label-sm uppercase px-2 py-0.5">Skein Spindle</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary">Natai (Spindle Cage)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  The lightweight skeletal bamboo wheel rotated by hand to transfer freshly botanically dyed skeins onto compact bobbins without tangling.
+                </p>
+</div>
+<!-- Tool 4 -->
+<div class="bg-surface-container-low p-space-md space-y-space-sm shadow-sm border border-outline-variant/20">
+<div class="w-full aspect-[4/3] bg-surface overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Slender carved horn and bamboo Jamdani needles called Kandu placing pure gold zari into cotton mulmul." src="/images/stitch/img-8a0a36c70273.png"/>
+<span class="absolute bottom-2 left-2 bg-primary text-on-primary font-label-sm text-label-sm uppercase px-2 py-0.5">Needlework</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary">Kandu (Weft Needles)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Polished horn needles utilized in Jamdani inlays to physically embroider intricate botanical motifs directly upon the active loom shed.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Authenticity, Verification & Purity Standards -->
+<section class="w-full bg-surface-container-low py-space-xl px-margin-mobile lg:px-margin">
+<div class="max-w-7xl mx-auto space-y-space-lg">
+<div class="max-w-3xl space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">Provenance &amp; Integrity</span>
+<h2 class="font-headline-lg text-headline-lg text-primary font-normal">Authenticity &amp; Purity Verification</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            In an era saturated with synthetic powerloom imitations, Desi Dhaaga maintains unbending benchmarks of natural handloom fidelity.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Certification Card 1 -->
+<div class="bg-surface p-space-lg space-y-space-md shadow-sm border border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">verified</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">India Handloom Mark Registry</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Every sari carries a verified government-accredited handloom identification number, confirming authentic hand-shuttle execution with zero synthetic blend intrusion.
+            </p>
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-widest font-semibold flex items-center gap-1">
+<span>Cert No. IHM-WB-44910</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+<!-- Verification Card 2: Burn Test Protocol -->
+<div class="bg-surface p-space-lg space-y-space-md shadow-sm border border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">local_fire_department</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">The Ancestral Burn Protocol</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Pure 100s combed cotton yarn burns with a clear, steady yellow flame smelling of burnt paper, leaving a delicate gray, crushable ash without bead or synthetic melting.
+            </p>
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-widest font-semibold flex items-center gap-1">
+<span>Pure Botanical Cellulosic Test</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+<!-- Care Guidelines -->
+<div class="bg-surface p-space-lg space-y-space-md shadow-sm border border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">spa</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Mindful Care &amp; Longevity</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Gently hand-rinse in cold water using natural reetha (soapnuts). Avoid direct scorching sunlight; dry in deep shade and store folded in unbleached muslin with dried neem leaves.
+            </p>
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-widest font-semibold flex items-center gap-1">
+<span>Heirloom Preservation Guide</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Guild Dispatch Inscription Box -->
+<div class="bg-primary text-on-primary p-space-lg md:p-space-xl mt-space-xl relative overflow-hidden border border-[#d8ac42]/40">
+<div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[240px]">texture</span>
+</div>
+<div class="relative z-10 max-w-2xl space-y-space-md">
+<div class="flex items-center gap-space-xs text-on-tertiary-container font-label-sm text-label-sm tracking-widest uppercase">
+<span class="w-1.5 h-1.5 rotate-45 bg-on-tertiary-container inline-block"></span>
+<span>Artisan Direct Patronage</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg font-normal leading-tight">
+              Commission a Custom Count Weave
+            </h3>
+<p class="font-body-md text-body-md text-on-primary/80 font-light leading-relaxed">
+              For ceremonial ceremonies and archival collectors, we arrange bespoke pit-loom commissions directly with our Santipur master weavers. Specify warp densities, natural dye extract baths, and personal Zari inlays.
+            </p>
+<div class="pt-space-xs flex flex-wrap gap-space-md items-center">
+<a class="inline-block bg-on-tertiary-container text-tertiary px-space-lg py-space-md font-label-lg text-label-lg tracking-widest uppercase hover:bg-tertiary-fixed transition-colors font-semibold" href="#">
+                Inquire With Our Guild Curator
+              </a>
+<a class="inline-flex items-center gap-space-xs text-tertiary-fixed hover:text-on-primary font-label-sm text-label-sm tracking-widest uppercase transition-colors" href="#">
+<span>View Loom Dispatch Calendar</span>
+<span class="material-symbols-outlined text-[16px]">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full bg-surface-container-low pt-space-xl pb-space-lg border-t border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-space-xl">
+<div class="md:col-span-5 flex flex-col justify-between pr-0 md:pr-space-lg">
+<div class="mb-space-lg">
+<div class="flex items-center gap-3 mb-space-xs">
+<img alt="Desi Dhaaga" class="h-14 w-14 rounded-full object-contain bg-white p-1 border border-[#d8ac42]/40 shadow-sm" src="/images/stitch/img-c1751dc03526.png"/>
+<div>
+<span class="font-headline-sm text-headline-sm text-primary block leading-tight font-serif">Desi Dhaaga</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block">Artisanal Heritage Handloom</span>
+</div>
+</div>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-widest block mt-2 mb-space-md">The Loom Archives â€¢ Santipur &amp; Phulia</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-sm">Handspun from 100s count sheer cotton yarn on traditional wooden pit looms. Each weave is an unhurried testament to India's gossamer mulmul legacy, revived for timeless ritual and quiet reverence.</p>
+</div>
+<div class="space-y-space-xs border-l-2 border-secondary/40 pl-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface font-semibold">Artisan Registry</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Documenting 14 master weaver guilds across the lower Gangetic basin.</p>
+</div>
+</div>
+<div class="md:col-span-3 flex flex-col space-y-space-md">
+<span class="font-label-lg text-label-lg uppercase tracking-widest text-primary font-semibold">Curations</span>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<li class="hover:text-secondary transition-colors cursor-pointer"><a class="hover:underline" data-path="shop-sarees" href="#">Jamdani Inlays</a></li>
+<li class="hover:text-secondary transition-colors cursor-pointer"><a class="hover:underline" data-path="shop-sarees" href="#">Neel &amp; Madder Dyes</a></li>
+<li class="hover:text-secondary transition-colors cursor-pointer"><a class="hover:underline" data-path="shop-sarees" href="#">Zari Kora Mulmul</a></li>
+<li class="hover:text-secondary transition-colors cursor-pointer"><a class="hover:underline" data-path="shop-sarees" href="#">Unbleached Ritual Drapes</a></li>
+<li class="hover:text-secondary transition-colors cursor-pointer"><a class="hover:underline" data-path="shop-sarees" href="#">Artisanal Bridal Sets</a></li>
+</ul>
+</div>
+<div class="md:col-span-4 flex flex-col">
+<span class="font-label-lg text-label-lg uppercase tracking-widest text-primary font-semibold mb-space-xs">The Weavers' Dispatch</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Receive periodic monographs on regional warp techniques, loom migrations, and archival seasonal releases.</p>
+<form class="flex flex-col space-y-space-md">
+<div class="flex items-center">
+<input class="w-full bg-transparent border-0 border-b border-on-surface/40 pb-space-xs font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:outline-none transition-colors" placeholder="Your email address" type="email"/>
+<button class="ml-space-sm font-label-lg text-label-lg uppercase text-primary hover:text-secondary transition-colors whitespace-nowrap" type="button">Inscribe</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">By joining, you respect our commitment to quiet, mindful communication.</span>
+</form>
+</div>
+</div>
+<div class="w-full flex flex-col sm:flex-row items-center justify-between pt-space-md border-t border-outline-variant/20 gap-y-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Â© 2024 Desi Dhaaga. All ancestral copyrights reserved to the artisan guilds.</span>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" data-path="craftsmanship" href="#">Provenance</a>
+<a class="hover:text-primary transition-colors" data-path="our-story" href="#">Ethics &amp; Guilds</a>
+<a class="hover:text-primary transition-colors" data-path="journal" href="#">Archival Notes</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    const zones = {
+      selvedge: {
+        number: "Zone 01 / 04",
+        tag: "Structural Border",
+        title: "The KinÄr (Selvedge & Zari Piping)",
+        desc: "The protective edge of the textile reinforced with doubled warp ends. In our archival mulmuls, the selvedge features a fine 1mm gold zari piping flanking a natural madder-dyed border that prevents unraveling and weights the silhouette.",
+        spec1: "26.2 N/cmÂ² (Reinforced)",
+        spec2: "4 ends per dent",
+        spec3: "Dense Double-Pass Selvedge"
+      },
+      zameen: {
+        number: "Zone 02 / 04",
+        tag: "Center Field",
+        title: "Gossamer ZamÄ«n (The Field)",
+        desc: "The core expansive body of the saree, handspun with 100s combed single cotton yarn. Woven in an open, square plain weave that breathes spontaneously in high humidity, creating the legendary translucent drape that melts upon the wearer.",
+        spec1: "18.4 N/cmÂ²",
+        spec2: "2 ends per dent",
+        spec3: "Straight Fly-Shuttle"
+      },
+      pallu: {
+        number: "Zone 03 / 04",
+        tag: "Ceremonial Fall",
+        title: "Aanchal / Pallu (The Crown)",
+        desc: "The terminating 90 centimeters of the saree, worn draped over the shoulder. Dense with supplementary weft motifs (Jamdani) and geometric zari lines, providing intentional acoustic and tactile drape weight to secure the textile.",
+        spec1: "22.0 N/cmÂ²",
+        spec2: "Supplemental Pick Insertion",
+        spec3: "Discontinuous Bamboo Kandu"
+      }
+    };
+
+    function inspectZone(zoneKey) {
+      const data = zones[zoneKey];
+      if (!data) return;
+
+      document.getElementById('zone-number').innerText = data.number;
+      document.getElementById('zone-tag').innerText = data.tag;
+      document.getElementById('zone-title').innerText = data.title;
+      document.getElementById('zone-desc').innerText = data.desc;
+      document.getElementById('zone-spec-1').innerText = data.spec1;
+      document.getElementById('zone-spec-2').innerText = data.spec2;
+      document.getElementById('zone-spec-3').innerText = data.spec3;
+    }
+  </script>
+</body></html>

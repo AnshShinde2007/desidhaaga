@@ -3,16 +3,18 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useCart } from "@/components/CartProvider";
 
 const navLinks = [
-  { label: "Shop Sarees", href: "/shop", active: true },
-  { label: "Our Story", href: "/story", active: false },
+  { label: "Shop Sarees", href: "/", active: true },
+  { label: "Our Story", href: "/our-story", active: false },
   { label: "Craftsmanship", href: "/craftsmanship", active: false },
   { label: "Journal", href: "/journal", active: false },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { cart, currency, setCurrency } = useCart();
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
@@ -53,12 +55,14 @@ export default function Header() {
         <div className="flex items-center gap-space-md lg:gap-space-lg">
           {/* Currency Switcher */}
           <div className="hidden sm:flex items-center gap-space-xs text-[#fff9ee] font-label-sm text-label-sm tracking-widest uppercase border border-[#d8ac42]/40 bg-[#3d2c00]/20 px-space-sm py-1">
-            <button className="text-[#ffdf9c] font-semibold cursor-pointer" type="button">
+            <button aria-pressed={currency === "INR"} onClick={() => setCurrency("INR")} className={`${currency === "INR" ? "text-[#ffdf9c] font-semibold" : "text-[#fff9ee]/75"} cursor-pointer`} type="button">
               INR (₹)
             </button>
             <span className="text-[#eec054]/50">/</span>
             <button
-              className="text-[#fff9ee]/75 hover:text-[#fff9ee] transition-colors cursor-pointer"
+              onClick={() => setCurrency("USD")}
+              aria-pressed={currency === "USD"}
+              className={`${currency === "USD" ? "text-[#ffdf9c] font-semibold" : "text-[#fff9ee]/75"} hover:text-[#fff9ee] transition-colors cursor-pointer`}
               type="button"
             >
               USD ($)
@@ -93,7 +97,7 @@ export default function Header() {
                 shopping_bag
               </span>
               <span className="absolute -top-1.5 -right-2 bg-[#d8ac42] text-[#251a00] font-label-sm text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
-                0
+                {cart?.totalQuantity ?? 0}
               </span>
             </Link>
             <div className="w-8 h-8 rounded-full bg-[#254c38]/60 border border-[#d8ac42]/50 flex items-center justify-center ml-space-xs">

@@ -106,13 +106,22 @@ export default function Footer() {
             guilds.
           </span>
           <div className="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+            <a
+              className="hover:text-primary transition-colors flex items-center"
+              href="https://www.instagram.com/desidhaaga_bysheetal/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Desi Dhaga on Instagram"
+            >
+              Instagram
+            </a>
             <Link
               className="hover:text-primary transition-colors"
               href="/craftsmanship"
             >
               Provenance
             </Link>
-            <Link className="hover:text-primary transition-colors" href="/story">
+            <Link className="hover:text-primary transition-colors" href="/our-story">
               Ethics &amp; Guilds
             </Link>
             <Link className="hover:text-primary transition-colors" href="/journal">
